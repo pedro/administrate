@@ -32,12 +32,16 @@ module Administrate
         options.fetch(:limit, DEFAULT_LIMIT)
       end
 
+      def order
+        options[:order]
+      end
+
       def permitted_attribute
         self.class.permitted_attribute(attribute)
       end
 
       def resources
-        data.limit(limit)
+        data.order(order).limit(limit)
       end
 
       def more_than_limit?
