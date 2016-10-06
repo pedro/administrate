@@ -16,9 +16,10 @@ module Administrate
         false
       end
 
-      def initialize(attribute, data, page, options = {})
+      def initialize(attribute, data, resource, page, options = {})
         @attribute = attribute
         @data = data
+        @resource = resource
         @page = page
         @options = options
       end
@@ -39,7 +40,7 @@ module Administrate
         "/fields/#{self.class.field_type}/#{page}"
       end
 
-      attr_reader :attribute, :data, :page
+      attr_reader :attribute, :data, :page, :resource
 
       protected
 
